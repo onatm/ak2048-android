@@ -5,7 +5,7 @@ Bir [2048](https://github.com/gabrielecirulli/2048) klonudur.
 
 ### Screenshot
 
-[![Screenshot](http://i.imgur.com/i8GU9zE.png)
+![Screenshot](http://i.imgur.com/i8GU9zE.png)
 
 ## Lisans
-AK 2048 [MIT lisansı] ile lisanslanmıştır. (https://github.com/onatm/ak2048/blob/master/LICENSE)
+AK 2048 Android [MIT lisansı] ile lisanslanmıştır. (https://github.com/onatm/ak2048/blob/master/LICENSE)
