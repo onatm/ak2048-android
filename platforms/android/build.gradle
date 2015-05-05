@@ -5,6 +5,7 @@ apply plugin: 'com.android.application'
 buildscript {
     repositories {
         mavenCentral()
+        jcenter()
     }
 
     dependencies {
@@ -20,6 +21,7 @@ dependencies {
         compile project(subproject)
     }
     compile 'com.google.android.gms:play-services:7.0.0'
+    compile 'com.parse.bolts:bolts-android:1.2.0'
 }
 
 android {
@@ -88,4 +90,11 @@ def getProjectList() {
       projects.add(":" + matcher.group(2).replace("/",":"))
     }
     return projects
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
 }

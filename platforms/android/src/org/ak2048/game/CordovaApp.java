@@ -30,7 +30,7 @@ import org.apache.cordova.*;
 
 public class CordovaApp extends CordovaActivity
 {
-    private static final String AdMob_Ad_Unit = "ca-app-pub-4231817588171293/4917918965";
+    private static final String AdMob_Ad_Unit = "";
 
     @Override
     public void onCreate(Bundle savedInstanceState)
