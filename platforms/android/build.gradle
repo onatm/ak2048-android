@@ -1,6 +1,6 @@
 import java.util.regex.Pattern
 
-apply plugin: 'android'
+apply plugin: 'com.android.application'
 
 buildscript {
     repositories {
@@ -8,7 +8,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.10.+'
+        classpath 'com.android.tools.build:gradle:1.2.2'
     }
 }
 
@@ -16,7 +16,7 @@ ext.multiarch=false
 
 dependencies {
     compile fileTree(dir: 'libs', include: '*.jar')
-    for (subproject in getProjectList()) {
+    getProjectList().each { subproject ->
         compile project(subproject)
     }
 }
@@ -35,11 +35,15 @@ android {
     }
 
     defaultConfig {
-        versionCode Integer.parseInt("" + getVersionCodeFromManifest() + "0")
+        applicationId "org.ak2048.game"
+        minSdkVersion 7
+        targetSdkVersion 19
+        versionCode 7
+        versionName "1.6.0"
     }
 
     compileSdkVersion 19
-    buildToolsVersion "19.0.0"
+    buildToolsVersion "19.1"
 
     if (multiarch || System.env.BUILD_MULTIPLE_APKS) {
         productFlavors {
@@ -72,14 +76,6 @@ android {
 
 task wrapper(type: Wrapper) {
     gradleVersion = '1.12'
-}
-
-def getVersionCodeFromManifest() {
-    def manifestFile = file(android.sourceSets.main.manifest.srcFile)
-    def pattern = Pattern.compile("versionCode=\"(\\d+)\"")
-    def matcher = pattern.matcher(manifestFile.getText())
-    matcher.find()
-    return Integer.parseInt(matcher.group(1))
 }
 
 def getProjectList() {
